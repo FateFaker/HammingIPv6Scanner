@@ -34,14 +34,15 @@ string extract_pattern(string a, string b)
 	}
 	return x;
 }
-int main()
+int main(int   argc, char*   argv[])
 {
 	// cout << hamming_dis("20011284ffff00000000000000000044","20011284ffff00000000000000000006") <<endl;
 	// return 0;
-	ifstream fin("./seedlist_f.txt");
+	
+	ifstream fin(argv[1]);
 	if (!fin.is_open())
     {
-        cout << "未成功打开文件" << endl;
+        cout << "Invalid file!" << endl;
     }
 	list<string> seedlist;
 	string ip;
@@ -154,7 +155,7 @@ int main()
 			}
     	}
 
-    ofstream fout1("./pattern_set_size_global.txt", ios::out);
+    ofstream fout1("./pattern_set_size.txt", ios::out);
     fout1 <<"{";
     for (auto iter = pattern_set.begin(); iter != pattern_set.end(); ++iter)
     {
@@ -167,7 +168,7 @@ int main()
     fout1 <<"}";
     fout1.close();
 
-    ofstream fout2("./pattern_set_size_global_dec.txt", ios::out);
+    ofstream fout2("./pattern_set_size_dec.txt", ios::out);
     fout2 <<"{";
     map<string, list<string> > new_pattern_set;
     for (auto iter = pattern_set.begin(); iter != pattern_set.end(); ++iter)
