@@ -27,7 +27,7 @@ def isalias(ip):
 
 fin = open("./pattern_num.txt","r")
 fout = open("./pattern_num_dealiased.txt","w")
-fout1 = open("./fruit_pattern_global.txt","w")
+fout1 = open("./fruit_pattern.txt","w")
 fout2 = open("./alias_pattern.txt","w")
 for line in fin:
     [pattern,num,sample] = line.strip().split("\t")
