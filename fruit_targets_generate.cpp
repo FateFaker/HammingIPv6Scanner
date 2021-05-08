@@ -9,10 +9,11 @@ int main()
 {
 	// setvbuf(stdin, new char[1 << 20], _IOFBF, 1 << 20);
  //    setvbuf(stdout, new char[1 << 20], _IOFBF, 1 << 20);
-	ifstream fin("./fruit_pattern_global.txt");
+	ifstream fin("./fruit_pattern.txt");
 	if (!fin.is_open())
     {
-        cout << "未成功打开文件" << endl;
+        cout << "Can not open fruit_pattern.txt " << endl;
+		return 0;
     }
 	string pattern_list[15000];
 	long long targets_num[15000];
