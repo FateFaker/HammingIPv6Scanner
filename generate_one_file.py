@@ -21,8 +21,8 @@ def extract_pattern(a,b):
 			res += a[i]
 	return res
 
-fin = open("./pattern_set_size_global.txt","r")
-fin1 = open("./pattern_set_size_global_dec.txt","r")
+fin = open("./pattern_set_size.txt","r")
+fin1 = open("./pattern_set_size_dec.txt","r")
 new_pattern = eval(fin.read())
 new_pattern_dec = eval(fin1.read())
 new_pattern = [(x,new_pattern[x]) for x in new_pattern]+[(x,new_pattern_dec[x]) for x in new_pattern_dec]
@@ -38,8 +38,7 @@ for pattern in new_pattern:
         small_pattern.append((pattern[0],pattern[1]*(2**(8-wildnum)),pattern[1],wildnum))
 
 small_pattern = sorted(small_pattern,key = lambda x:-x[1])
-len(small_pattern)
-len(small_pattern)
+
 
 seed = 1
 pattern_num = 0
