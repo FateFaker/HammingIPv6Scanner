@@ -1,7 +1,7 @@
 # HammingIPv6Scanning
 
 ## fruit_targets_generate.cpp
-Generates targets for scanning.Outputs targets to Stdout. You can use ZMap with "--ipv6-target-file=-" to perform scanning.
+Generates targets for scanning. Outputs targets to Stdout. You can use ZMap with "--ipv6-target-file=-" to perform scanning.
 
 ## hamming.cpp
 Usage:  hamming filename
