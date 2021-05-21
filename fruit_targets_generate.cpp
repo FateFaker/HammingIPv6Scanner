@@ -9,10 +9,10 @@ int main()
 {
 	// setvbuf(stdin, new char[1 << 20], _IOFBF, 1 << 20);
  //    setvbuf(stdout, new char[1 << 20], _IOFBF, 1 << 20);
-	ifstream fin("./fruit_pattern.txt");
+	ifstream fin("./pattern_gloabl.txt");
 	if (!fin.is_open())
     {
-        cout << "Can not open fruit_pattern.txt " << endl;
+        cout << "Can not open pattern_gloabl.txt " << endl;
 		return 0;
     }
 	string pattern_list[15000];
