@@ -13,3 +13,6 @@ Generate targets for scanning.
 
 ## Use ZMapv6 for Scanning
 Source: <github.com/tumi8/zmap>
+
+## pattern_gloabal.txt
+Patterns extracted from global IPv6 hitlist.
