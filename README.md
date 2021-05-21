@@ -3,6 +3,10 @@
 ## fruit_targets_generate.cpp
 Generates targets for scanning. Outputs targets to Stdout. You can use ZMap with "--ipv6-target-file=-" to perform scanning.
 
+## IPv6 hitlist from scanning
+109M responsive addresses
+https://drive.google.com/file/d/1qWqJwH897pW1s5bS3NOCKMLvpZ4nyZy_/view?usp=sharing
+
 ## hamming.cpp
 Usage:  hamming filename
 
