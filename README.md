@@ -31,7 +31,7 @@ https://drive.google.com/file/d/1qWqJwH897pW1s5bS3NOCKMLvpZ4nyZy_/view?usp=shari
 
 
 ## pre_scan_generate.py
-Generate targets for pre-scanning, write targets into stdout.
+Generates targets for pre-scanning, write targets into stdout.
 
 ## de_alias.py
 Detects for aliased IPv6 addresses.
