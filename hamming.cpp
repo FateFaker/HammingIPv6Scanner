@@ -40,13 +40,13 @@ int main(int   argc, char*   argv[])
 	// cout << hamming_dis("20011284ffff00000000000000000044","20011284ffff00000000000000000006") <<endl;
 	// return 0;
     cmdline::parser a;
-    a.add<string>("hitlist-file", 'f', "IPv6 dataset in hex IP format", false, "pattern_gloabal.txt");
+    a.add<string>("hitlist-file", 'f', "IPv6 dataset in hex IP format", true, "");
     a.add<string>("output-file", '\0', "Output file", false, "./pattern_set_size.txt");
 
-    ifstream fin(argv[1]);
+    ifstream fin(a.get<string>("hitlist-file"));
 	if (!fin.is_open())
     {
-        cout << "Invalid file!" << endl;
+        cout << "Can not open hitlist-file!" << endl;
     }
 	list<string> seedlist;
 	string ip;
@@ -159,7 +159,7 @@ int main(int   argc, char*   argv[])
 			}
     	}
 
-    ofstream fout1("./pattern_set_size.txt", ios::out);
+    ofstream fout1(a.get<string>("output-file"), ios::out);
     fout1 <<"{";
     for (auto iter = pattern_set.begin(); iter != pattern_set.end(); ++iter)
     {
@@ -169,11 +169,7 @@ int main(int   argc, char*   argv[])
     	fout1 << iter->second.size();
     	fout1 << ",";
     }
-    fout1 <<"}";
-    fout1.close();
 
-    ofstream fout2("./pattern_set_size_dec.txt", ios::out);
-    fout2 <<"{";
     map<string, list<string> > new_pattern_set;
     for (auto iter = pattern_set.begin(); iter != pattern_set.end(); ++iter)
     {
@@ -208,13 +204,13 @@ int main(int   argc, char*   argv[])
     		}
     	if (flag)
     	{
-    		fout2 << "\""<< pattern << "\":";
-    		fout2 << iter->second.size();
-    		fout2 << ",";
+    		fout1 << "\"" << pattern << "\":";
+    		fout1 << iter->second.size();
+    		fout1 << ",";
     		cout << iter->first << "\t" << pattern <<"\t" << total <<"\t"<< iter->second.size()<<endl;
     	}
     }
-    fout2 <<"}";
-    fout2.close();
+    fout1 <<"}";
+    fout1.close();
 	return 0;
 }

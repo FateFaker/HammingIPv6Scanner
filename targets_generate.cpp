@@ -4,17 +4,23 @@
 #include <string>
 #include <fstream>
 #include <iostream>
+#include "cmdline.h"
 using namespace std;
 int main()
 {
 	// setvbuf(stdin, new char[1 << 20], _IOFBF, 1 << 20);
  //    setvbuf(stdout, new char[1 << 20], _IOFBF, 1 << 20);
-	ifstream fin("./pattern_gloabl.txt");
+    cmdline::parser a;
+    a.add<string>("pattern-file", 'f', "pattern list for scanning", false, "pattern_gloabal.txt");
+    a.add<int>("sampling-ratio", 'r', "sampling ratio for scanning", false, 1, cmdline::range(1, 65535));
+
+    ifstream fin(a.get<string>("pattern-file"));
 	if (!fin.is_open())
     {
-        cout << "Can not open pattern_gloabl.txt " << endl;
+        cout << "Can not open pattern file!" << endl;
 		return 0;
     }
+	int ratio = a.get<int>("sampling-ratio");
 	string pattern_list[15000];
 	long long targets_num[15000];
 	string pattern;
@@ -46,7 +52,7 @@ int main()
     	// cout << seed <<endl;
     	// return 0;
     	for (int i = 0; i < n; i++)
-    		if (q<targets_num[i]/1)
+    		if (q<targets_num[i]/ratio)
 	    	{
 	    		char temp[40] = "0000:0000:0000:0000:0000:0000:0000:0000";
 	    		long long t = seed;
