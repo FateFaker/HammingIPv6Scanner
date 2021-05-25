@@ -1,7 +1,7 @@
 # HammingIPv6Scanner
 HammingIPv6Scanner learns patterns from IPv6 addresses, and use patterns for targets generation.
 # Quick Start
-Use pre-learned patterns in pattern_gloabal.txt for scanning
+Use pre-learned patterns in `pattern_gloabal.txt` for scanning
   1. Install ZMapv6 Source: <github.com/tumi8/zmap>
   2. build `targets_generate.cpp`
   3. Change working directory to this repository.
