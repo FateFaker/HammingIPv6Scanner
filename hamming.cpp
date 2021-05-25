@@ -6,6 +6,7 @@
 #include <iostream>
 #include <map>
 #include <list>
+#include "cmdline.h"
 using namespace std;
 int hamming_dis(string a, string b)
 {
@@ -38,8 +39,11 @@ int main(int   argc, char*   argv[])
 {
 	// cout << hamming_dis("20011284ffff00000000000000000044","20011284ffff00000000000000000006") <<endl;
 	// return 0;
-	
-	ifstream fin(argv[1]);
+    cmdline::parser a;
+    a.add<string>("hitlist-file", 'f', "IPv6 dataset in hex IP format", false, "pattern_gloabal.txt");
+    a.add<string>("output-file", '\0', "Output file", false, "./pattern_set_size.txt");
+
+    ifstream fin(argv[1]);
 	if (!fin.is_open())
     {
         cout << "Invalid file!" << endl;
