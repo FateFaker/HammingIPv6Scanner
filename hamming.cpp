@@ -41,7 +41,7 @@ int main(int   argc, char*   argv[])
 	// return 0;
     cmdline::parser a;
     a.add<string>("hitlist-file", 'f', "IPv6 dataset in hex IP format", true, "");
-    a.add<string>("output-file", '\0', "Output file", false, "./pattern_set_size.txt");
+    a.add<string>("output-file", 'o', "Output file", false, "./pattern_set_size.txt");
 
     ifstream fin(a.get<string>("hitlist-file"));
 	if (!fin.is_open())
